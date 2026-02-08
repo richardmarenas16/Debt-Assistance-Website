@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Interactive Website</title>
+    <!-- Tailwind CSS and DaisyUI CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.4.19/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+        * {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #3727a4 100%);
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #2c3ba0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .typing-animation {
+            border-right: 2px solid #667eea;
+            animation: blink 2s infinite;
+        }
+
+        @keyframes blink {
+            0%, 50% { border-color: transparent; }
+            51%, 100% { border-color: #667eea; }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .skill-bar {
+            position: relative;
+            background: #e5e7eb;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 8px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 10px;
+            transition: width 2s ease-in-out;
+            width: 0%;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .navbar-blur {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.9);
+        }
+    </style>
+</head>
+<body class="bg-base-100">
+    <!-- Navigation -->
+    <nav class="navbar fixed top-0 z-50 navbar-blur transition-all duration-300" id="navbar">
+        <div class="navbar-start">
+            <a class="btn btn-ghost text-xl font-bold text-gradient">Debt Assistance Solutions</a>
+        </div>
+        <div class="navbar-center hidden lg:flex">
+            <ul class="menu menu-horizontal px-1">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+        <div class="navbar-end">
+            <button class="btn btn-primary">Get Started</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen gradient-bg flex items-center justify-center text-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <div class="floating absolute top-20 left-10 w-20 h-20 bg-white rounded-full"></div>
+            <div class="floating absolute top-40 right-20 w-16 h-16 bg-white rounded-full" style="animation-delay: 1s;"></div>
+        </div>
+        <div class="container mx-auto px-4 text-center z-10">
+            <div class="fade-in visible">
+                <h1 class="text-5xl md:text-7xl font-bold mb-6">Expert <span class="text-yellow-300">Debt Assistance</span></h1>
+                <p class="text-xl md:text-2xl mb-8">We are <span id="typing-text" class="typing-animation font-semibold">Problem Solvers</span></p>
+                <p>Professional guidance and negotiation support to help borrowers reduce outstanding balances and reach fair settlement agreements with banks.</p>
+                <div class="space-x-4">
+                    <a href="#services" class="btn btn-lg bg-white text-primary border-none">Our Services</a>
+                    <a href="#contact" class="btn btn-lg btn-outline text-white border-white">Free Consultation</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+<section class="py-16 gradient-bg text-white">
+  <div class="container mx-auto px-4">
+    <div class="grid md:grid-cols-3 gap-8 text-center">
+
+      <!-- Website Visitors -->
+      <div class="fade-in">
+        <div class="stat-item">
+          <i class="fas fa-eye text-4xl mb-4 text-yellow-300"></i>
+          <div class="text-4xl font-bold mb-2">
+            <span id="visitorCount">Tracked</span>
+          </div>
+          <p class="text-lg opacity-90">Website Visitors (Analytics)</p>
+        </div>
+      </div>
+
+      <!-- Free Consultations -->
+      <div class="fade-in">
+        <div class="stat-item">
+          <i class="fas fa-comments text-4xl mb-4 text-yellow-300"></i>
+          <div class="text-4xl font-bold mb-2">
+            <span id="consultationCount">0</span>+
+          </div>
+          <p class="text-lg opacity-90">Free Consultations Received</p>
+        </div>
+      </div>
+
+      <!-- Success Rate -->
+      <div class="fade-in">
+        <div class="stat-item">
+          <i class="fas fa-chart-line text-4xl mb-4 text-yellow-300"></i>
+          <div class="text-4xl font-bold mb-2">
+            <span>High</span>
+          </div>
+          <p class="text-lg opacity-90">Settlement Success Rate</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+        <!-- Services Section (Matching the Design) -->
+    <section id="about" class="py-20 bg-base-100">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl font-bold mb-4 text-gradient">About</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">With over 12 years of experience in the debt collection industry, I have worked extensively with credit card and personal loan accounts, handling negotiations, settlement assessments, and borrower communications in line with bank policies and ethical standards.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Service Card 1 -->
+                <div class="card bg-white shadow-xl hover:shadow-2xl transition-all duration-300 fade-in">
+                    <div class="card-body items-center text-center">
+                        <i class="fas fa-hand-holding-usd text-4xl text-primary mb-4"></i>
+                        <h2 class="card-title">Professional experience</h2>
+                        <p>With over 12 years of experience in the debt collection industry, I have worked extensively with credit card and personal loan accounts, handling negotiations, settlement assessments, and borrower communications in line with bank policies and ethical standards.</p>
+                    </div>
+                </div>
+                <!-- Service Card 2 -->
+                <div class="card bg-white shadow-xl hover:shadow-2xl transition-all duration-300 fade-in">
+                    <div class="card-body items-center text-center">
+                        <i class="fas fa-comments-dollar text-4xl text-primary mb-4"></i>
+                        <h2 class="card-title">Mission</h2>
+                        <p>Helping borrowers resolve debt responsibly through transparency, experience, and fair negotiation support.</p>
+                    </div>
+                </div>
+                <!-- Service Card 3 -->
+                <div class="card bg-white shadow-xl hover:shadow-2xl transition-all duration-300 fade-in">
+                    <div class="card-body items-center text-center">
+                        <i class="fas fa-file-invoice-dollar text-4xl text-primary mb-4"></i>
+                        <h2 class="card-title">Vission</h2>
+                        <p>A future where debt challenges are addressed with clarity, fairness, and respect.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section (Matching the Design) -->
+    <section id="services" class="py-20 bg-base-100">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl font-bold mb-4 text-gradient">Our Services</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Professional strategies to help you manage and eliminate debt.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Service Card 1 -->
+                <div class="card bg-white shadow-xl hover:shadow-2xl transition-all duration-300 fade-in">
+                    <div class="card-body items-center text-center">
+                        <i class="fas fa-hand-holding-usd text-4xl text-primary mb-4"></i>
+                        <h2 class="card-title">Assessment</h2>
+                        <p>A confidential review of your account to determine possible settlement options based on your situation and bank policies.</p>
+                    </div>
+                </div>
+                <!-- Service Card 2 -->
+                <div class="card bg-white shadow-xl hover:shadow-2xl transition-all duration-300 fade-in">
+                    <div class="card-body items-center text-center">
+                        <i class="fas fa-comments-dollar text-4xl text-primary mb-4"></i>
+                        <h2 class="card-title">Counseling</h2>
+                        <p>Clear, one-on-one guidance to help you understand your debt and make informed, realistic decisions.</p>
+                    </div>
+                </div>
+                <!-- Service Card 3 -->
+                <div class="card bg-white shadow-xl hover:shadow-2xl transition-all duration-300 fade-in">
+                    <div class="card-body items-center text-center">
+                        <i class="fas fa-file-invoice-dollar text-4xl text-primary mb-4"></i>
+                        <h2 class="card-title">Settlement Support</h2>
+                        <p>Assistance in communicating and negotiating with banks to pursue fair and affordable settlement arrangements.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+<section id="contact" class="py-20 bg-base-200">
+  <div class="container mx-auto px-4 max-w-4xl">
+    
+    <div class="text-center mb-12 fade-in">
+      <h2 class="text-4xl font-bold text-gradient">Get in Touch</h2>
+      <p class="mt-2 text-gray-500">
+        Share your concern and I’ll get back to you confidentially.
+      </p>
+    </div>
+
+    <form 
+      action="https://formspree.io/f/xgolerbq" 
+      method="POST" 
+      class="space-y-4 fade-in"
+    >
+      <input
+        type="text"
+        name="name"
+        placeholder="Full name"
+        class="input input-bordered w-full"
+        required
+      />
+
+      <input
+        type="email"
+        name="email"
+        placeholder="Email address"
+        class="input input-bordered w-full"
+        required
+      />
+
+      <textarea
+        name="message"
+        placeholder="Tell us about your situation"
+        class="textarea textarea-bordered w-full"
+        required
+      ></textarea>
+
+      <button type="submit" class="btn btn-primary w-full">
+        Send Message
+      </button>
+    </form>
+
+  </div>
+</section>
+
+
+    <script>
+        // Typing Animation Logic
+        const typingText = document.getElementById('typing-text');
+        const texts = ['Problem Solvers', 'Financial Experts', 'Debt Specialists'];
+        let textIndex = 0, charIndex = 0, isDeleting = false;
+
+        function typeWriter() {
+            const currentText = texts[textIndex];
+            typingText.textContent = isDeleting ? currentText.substring(0, charIndex - 1) : currentText.substring(0, charIndex + 1);
+            charIndex = isDeleting ? charIndex - 1 : charIndex + 1;
+
+            if (!isDeleting && charIndex === currentText.length) {
+                setTimeout(() => isDeleting = true, 2000);
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                textIndex = (textIndex + 1) % texts.length;
+            }
+            setTimeout(typeWriter, isDeleting ? 50 : 100);
+        }
+        typeWriter();
+
+        // Fade-in Observer
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+<script>
+  function animateCounters() {
+    const counters = document.querySelectorAll('.counter');
+
+    counters.forEach(counter => {
+      if (counter.dataset.animated === "true") return;
+
+      const target = Number(counter.dataset.target);
+      const duration = 2000; // animation duration in ms
+      const startTime = performance.now();
+
+      counter.dataset.animated = "true";
+
+      function updateCounter(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const value = Math.floor(progress * target);
+
+        counter.textContent = value.toLocaleString();
+
+        if (progress < 1) {
+          requestAnimationFrame(updateCounter);
+        } else {
+          counter.textContent = target.toLocaleString();
+        }
+      }
+
+      requestAnimationFrame(updateCounter);
+    });
+  }
+
+  const statsSection = document.querySelector('.gradient-bg');
+
+  if (statsSection) {
+    const statsObserver = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            animateCounters();
+            statsObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    statsObserver.observe(statsSection);
+  }
+</script>
+
+        }
+        <!-- Add this to your <head> section for Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=YOUR-GA-ID"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'YOUR-GA-ID');
+</script>
+<script>
+  async function loadConsultationCount() {
+    try {
+      const response = await fetch(
+        "https://formspree.io/api/0/forms/xgolerbq/submissions",
+        {
+          headers: {
+            "Authorization": "Bearer YOUR_FORMSPREE_API_KEY"
+          }
+        }
+      );
+
+      const data = await response.json();
+      document.getElementById("consultationCount").textContent =
+        data.total.toLocaleString();
+    } catch (error) {
+      console.error("Unable to load consultation count", error);
+    }
+  }
+
+  loadConsultationCount();
+</script>
+
+</body>
+</html>
